@@ -58,7 +58,7 @@ def main(glass_info, speed):
 				delta_water_cg: (delta in m radially, delta in m of height)
 	'''
 
-	delta_water_cg = None
+	delta_water_cg = (0, 0)
 
 	max_h = height(glass_info, glass_info['r_1'], speed)
 	if max_h > glass_info['height']:
