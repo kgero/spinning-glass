@@ -14,30 +14,25 @@ begins to rotate. As the tray rotates faster and faster, what happens first?
 
 File Structure
 
-- data.py 
-  - Description: (store the physical variables)
-  - Args: None
-  - Return: None
-
 - main.py 
   - Description: (will run the simulation, increaseing spinning speed until failture)
   - Args: glass size, amount of water, distance from center, friction
   - Return: what failed, at what speed
 
-- glass_slides.py 
+- src/glass_slides.py 
   - Description: (calc force on glass, is it enough to slide?)
   - Args: physical variables, speed
-  - Return: slide?(T/F)
+  - Return: slide?(0/1)
 
-- water_shape.py 
+- src/water_shape.py 
   - Description: (where the water is in the glass, where the CG of the water is, does it reach the brim?)
   - Args: physical variables, speed
-  - Return: brim?(T/F), delta_water_CG
+  - Return: brim?(0/1), delta_water_CG
 
-- glass_tips.py
+- src/glass_tips.py
   - Description: (moment on glass (given water CG), enough to tip?)
   - Args: physical variables, speed, delta_water_CG
-  - Return: tips?(T/F)
+  - Return: tips?(0/1)
 
 Physical Variables
 
