@@ -3,7 +3,6 @@ Description: (will determine if, at the given speed, the glass will slide on the
 Args: glass_info, speed
 Return: slides(0/1)
 '''
-import math.pi as pi
 
 def main(glass_info,speed):
 	'''Calculates if the glass slides at given speed.
@@ -19,10 +18,10 @@ def main(glass_info,speed):
 
 	 # Calculate the centrifugal force at the give speed
 	 # M * w^2 * r
-	 centrifugal_force = glass_info['total_mass'] * (speed**2) * glass_info['start_radius']
-	 normal_force = glass_info['total_mass'] * 9.8
+	centrifugal_force = glass_info['total_mass'] * (speed**2) * glass_info['start_radius']
+	normal_force = glass_info['total_mass'] * 9.8
 
-	 if centrifugal_force > normal_force * c_f:
-	 	return 1
-	 else:
-	 	return 0
+	if centrifugal_force > normal_force * glass_info['c_f']:
+		return 1
+	else:
+		return 0
