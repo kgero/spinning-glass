@@ -8,6 +8,9 @@ import src.glass_slides as glass_slides
 import src.water_shape as water_shape
 import src.glass_tips as glass_tips
 
+
+
+
 glass_info = {
 	'height': .2,		# m
 	'b_radius': .04,	# m
@@ -18,6 +21,32 @@ glass_info = {
 	'percent_full': .5,	# unitless
 	'start_radius': .1	# m
 }
+
+def amend_glass_info(glass_info):
+	'''Calculate properties of system from glass_info and amends glass_info dictionary
+
+	 Args:
+	 	glass_info : dictionary of information about glass_info
+
+	 Returns:
+	 	True
+	 '''
+	# New calculations
+	 inside_glass_vol = (1/3)*pi*(b_radius**2 + b_radius*t_radius + t_radius**2)*height
+	 outside_glass_vol = (1/3)*pi*((b_radius+thickness)**2
+	 					+ (b_radius+thickness)*(t_radius+thickness) 
+	 					+ (t_radius+thickness)**2)*height
+	 glass_vol = outside_glass_vol - inside_glass_vol 	# m^3
+	 water_vol = inside_glass_vol * percent_full 		# m^3
+	 mass_glass = density * glass_vol 					# kg
+	 mass_water = 1000 * water_vol 						# kg
+	 total_mass = mass_glass + mass_water				# kg
+
+	 # Amend Values
+	 glass_info['total_mass'] = total_mass
+	 glass_info['mass_water'] = mass_water
+	return True
+
 
 def run_simulation(glass_info, speed):
 	'''Runs the simulation at a given speed, returns what occurs.
@@ -73,4 +102,5 @@ def find_speed(interval=1):
 		raise ValueError('No event occurred. Something went wrong?')
 
 if __name__ == "__main__":
+	amend_glass_info()
 	print find_speed()
