@@ -14,15 +14,15 @@ def height_constant(glass_info, speed):
 		h_0 : constant of the height equation.
 	'''
 
-	m = glass_info['water_mass']
+	m = glass_info['mass_water']
 	p = 1000  # density of water, kg/m^3
 	a = glass_info['alpha']
 	r_0 = glass_info['r_0']
 	r_1 = glass_info['r_1']
 	g = 9.8  # acceleration of gravity, m/s^2
 
-	first_element = 2 * m / (p * a * (r_1^2 - r_0^2))
-	second_element = (r_1^4 - r_0^4) * speed^2 / (4 * g)
+	first_element = 2 * m / (p * a * (r_1**2 - r_0**2))
+	second_element = (r_1**4 - r_0**4) * speed**2 / (4 * g)
 	return first_element - second_element
 
 
@@ -42,7 +42,7 @@ def height(glass_info, r, speed):
 	'''
 	h_0 = height_constant(glass_info, speed)
 
-	return h_0 + ((speed * r)^2 / (2 * g))
+	return h_0 + ((speed * r)**2 / (2 * 9.8))
 
 
 def main(glass_info, speed):
