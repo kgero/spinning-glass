@@ -26,7 +26,7 @@ Here we assume that the shape the water takes in the glass is the same as it wou
 
 picture to demonstrate what this means!
 
-The height of the water as a function of the radius can be derived given this assumption about the situation: the slope of the surface of the water at a particular point is perpendicular to the angle of the resultant force on the water at this point. If the resultant force were not perpendicular to the slope, the water would move! This (hopefully) makes intuitive sense. When water is in an unmoving container, the slope of the surface is horizontal, because the resultant force (just the force of gravity) is directed vertically. 
+The height of the water as a function of the radius can be derived given this assumption about the situation: the slope of the surface of the water at a particular point is perpendicular to the angle of the resultant force on the water at this point. If the resultant force were not perpendicular to the slope, the water would move! This (hopefully) makes intuitive sense. For example, when water is in an unmoving container, the slope of the surface is horizontal, because the resultant force (just the force of gravity) is directed vertically. 
 
 picture of this too!
 
@@ -34,13 +34,15 @@ But what we're looking for is the height as a function of the radius -- h(r). If
 
 picture of force diagram and dh/dr, integrate to get h(r)
 
-But we still don't know what h<sub>0</sub> is! It will determine how "high" the curve is. This must be a function of the volume, because that's what will set our height. To find it, we can integrate h(r) over the area of our glass, set that equal to the volume and solve for h<sub>0</sub>.
+But we still don't know what h<sub>0</sub> is! It will determine how "high" the curve is. This must be a function of the volume, because increasing or decreasing the initial height of the curve increases or decreases the volume. To find it, we can integrate h(r) over the area of our glass, set that equal to the volume and solve for h<sub>0</sub>.
 
 Here's the thing: integrating over a circle sounds like a pain in the ass. Maybe we'll implement that eventually, but for now we'll do the tactical engineering thing and pick a simpler problem to solve. Let's integrate over a wedge that looks like this:
 
 wedge shape
 
-This is way easier. We can do a definite integral from r<sub>0</sub> to r<sub>1</sub> of **alpha * r * h(r) * dr**.
+This is way easier. We can do a definite integral from r<sub>0</sub> to r<sub>1</sub> of **alpha * r * h(r) * dr**. No need to bore you with the math, the result is a little long, but it gives us the volume of water in the glass. Since the volume is something we know (it's a physical property of the set up) we can use it to solve for h<sub>0</sub> which, in case you forgot, is the thing we've looking for.
+
+Now we have a complete equation for h(r) over a funny wedged shaped glass, and it depends on the rotational speed of the spinning plate and the physical properties of the glass, including how far it is from the center. Sweet! At any rotational speed we can look at the height of the water at the outer edge and tell if it's higher than the glass -- that means the water has spilled.
 
 ## File Structure
 
